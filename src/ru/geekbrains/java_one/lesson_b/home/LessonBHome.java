@@ -23,7 +23,16 @@ public class LessonBHome {
             el+=3;
         }
     }
-    
+
+    private  static int[] arrLessSixXTwo (int[] arr){
+        int[] arrLessSix = Arrays.copyOf(arr, arr.length);
+            for (int i = 0; i < arrLessSix.length; i++){
+                if (arrLessSix[i] < 6){
+                    arrLessSix[i] *= 2;
+                }
+            }
+        return arrLessSix;
+    }
 
     public static void main (String[] args){
         int[] arr = {0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1};
@@ -31,8 +40,17 @@ public class LessonBHome {
         System.out.println("Original:  " + Arrays.toString(arr));
         System.out.println("Inversion: " + Arrays.toString(arrInv));
         System.out.println();
+
         int[] arrEight = new int[8];
         arrPlusTree(arrEight);
         System.out.println("PlusTree: " + Arrays.toString(arrEight));
+        System.out.println();
+
+        int[] arrXTwo = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        int[] arrXTwoModif = arrLessSixXTwo(arrXTwo);
+        System.out.println("Original array:  " + Arrays.toString(arrXTwo));
+        System.out.println("LessSixXTwo: " + Arrays.toString(arrXTwoModif));
+        System.out.println();
+
     }
 }
