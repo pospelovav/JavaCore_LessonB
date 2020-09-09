@@ -34,6 +34,43 @@ public class LessonBHome {
         return arrLessSix;
     }
 
+    private static int arrMaxElement (int[] arr){
+        int maxEl = arr[0];
+        for (int i = 1; i < arr.length; i++){
+            if (maxEl < arr[i]){
+                maxEl = arr[i];
+            }
+        }
+        return maxEl;
+    }
+
+    private static int arrMinElement (int[] arr){
+        int minEl = arr[0];
+        for (int i = 1; i < arr.length; i++){
+            if (minEl > arr[i]){
+                minEl = arr[i];
+            }
+        }
+        return minEl;
+    }
+
+    private static void arrDiagModif (int[][] arr){
+        int i = 0;
+        int j = 0;
+        while (i < arr[0].length){
+            arr[i][j] = 1;
+            i++;
+            j++;
+        }
+    }
+
+    private static void printArrSquare (int[][] arr){     //печать квадратных массивов
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(Arrays.toString(arr[i]));
+        }
+        System.out.println();
+    }
+
     public static void main (String[] args){
         int[] arr = {0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1};
         int[] arrInv = inversion(arr);
@@ -51,6 +88,17 @@ public class LessonBHome {
         System.out.println("Original array:  " + Arrays.toString(arrXTwo));
         System.out.println("LessSixXTwo: " + Arrays.toString(arrXTwoModif));
         System.out.println();
+
+        int[] arrForMaxMin = {1, 5, 3, 2, 11, 4, -5, 2, 4, 8, 9, 11};
+        System.out.println(Arrays.toString(arrForMaxMin));
+        System.out.println("MaxElement = " + arrMaxElement(arrForMaxMin));
+        System.out.println("MinElement = " + arrMinElement(arrForMaxMin));
+        System.out.println();
+
+        int[][] arrSquare = new int[4][4];
+        printArrSquare(arrSquare);
+        arrDiagModif(arrSquare);
+        printArrSquare(arrSquare);
 
     }
 }
