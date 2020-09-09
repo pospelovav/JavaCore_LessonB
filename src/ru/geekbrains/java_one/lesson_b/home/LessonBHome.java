@@ -78,7 +78,7 @@ public class LessonBHome {
         for (int i = 0; i < arr.length; i++) {
             rightSum += arr[i];
         }
-        //System.out.println(rightSum);
+
         for (int i = 0; i < arr.length; i++){
             rightSum -= arr[i];
             leftSum += arr[i];
@@ -87,6 +87,29 @@ public class LessonBHome {
             }
         }
         return (df == 1);
+    }
+
+    private static void arrShift (int[] arr, int n){
+        if (n > 0){
+            for (int m = 0; m < n; m++) {         //сдвиг влево
+                int tempVar = arr[0];
+                for (int i = 0; i < (arr.length - 1); i++) {
+                    arr[i] = arr[i + 1];
+                }
+                arr[arr.length - 1] = tempVar;
+            }
+        } else {
+            for (int m = 0; m < (n * (-1)); m++) {
+               //System.out.println(n);
+                int tempVar = arr[arr.length-1];
+                for (int i = (arr.length - 1); i > 0; i--) {
+                    arr[i] = arr[i - 1];
+                }
+                arr[0] = tempVar;
+
+            }
+        }
+
     }
 
     public static void main (String[] args){
@@ -123,6 +146,14 @@ public class LessonBHome {
        // int[] arrForBalance = {2, 1, 1, 2, 1};   //false
        // int[] arrForBalance = {2, 1, 1, 2, 3, 1};   //false
         System.out.println(checkBalance(arrForBalance));
+        System.out.println();
+
+        int[] arrForShift = {1, 2, 3, 4, 5, 6};
+        System.out.println("Original array:  " + Arrays.toString(arrForShift));
+        arrShift(arrForShift, 2);   //влево на 2
+        System.out.println("Shift left array:  " + Arrays.toString(arrForShift));
+        arrShift(arrForShift, -2);   //вправо на 2
+        System.out.println("Shift right array:  " + Arrays.toString(arrForShift));
 
     }
 }
