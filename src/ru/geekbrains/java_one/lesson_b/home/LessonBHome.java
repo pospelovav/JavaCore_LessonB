@@ -71,6 +71,24 @@ public class LessonBHome {
         System.out.println();
     }
 
+    private static boolean checkBalance (int[] arr){
+        int rightSum = 0;
+        int leftSum = 0;
+        int df = 0;
+        for (int i = 0; i < arr.length; i++) {
+            rightSum += arr[i];
+        }
+        //System.out.println(rightSum);
+        for (int i = 0; i < arr.length; i++){
+            rightSum -= arr[i];
+            leftSum += arr[i];
+            if (leftSum == rightSum) {
+                df = 1;                         //если сюда написать return, то ругается, поэтому тут костылик
+            }
+        }
+        return (df == 1);
+    }
+
     public static void main (String[] args){
         int[] arr = {0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1};
         int[] arrInv = inversion(arr);
@@ -99,6 +117,12 @@ public class LessonBHome {
         printArrSquare(arrSquare);
         arrDiagModif(arrSquare);
         printArrSquare(arrSquare);
+
+        int[] arrForBalance = {10, 1, 2, 3, 4};  //true
+       // int[] arrForBalance = {1, 1, 1, 2, 1};  //true
+       // int[] arrForBalance = {2, 1, 1, 2, 1};   //false
+       // int[] arrForBalance = {2, 1, 1, 2, 3, 1};   //false
+        System.out.println(checkBalance(arrForBalance));
 
     }
 }
