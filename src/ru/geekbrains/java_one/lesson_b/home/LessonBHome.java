@@ -15,6 +15,14 @@ public class LessonBHome {
         }
         return arrInversion;
     }
+
+    private static void arrPlusTree (int[] arr){
+        int el = 1;
+        for (int i = 0; i < arr.length; i++){
+            arr[i] = el;
+            el+=3;
+        }
+    }
     
 
     public static void main (String[] args){
@@ -22,6 +30,9 @@ public class LessonBHome {
         int[] arrInv = inversion(arr);
         System.out.println("Original:  " + Arrays.toString(arr));
         System.out.println("Inversion: " + Arrays.toString(arrInv));
-
+        System.out.println();
+        int[] arrEight = new int[8];
+        arrPlusTree(arrEight);
+        System.out.println("PlusTree: " + Arrays.toString(arrEight));
     }
 }
